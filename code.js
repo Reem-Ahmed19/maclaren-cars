@@ -56,3 +56,94 @@
                 behavior: 'smooth'
             });
         });
+
+         (function() {
+            'use strict';
+
+            // Intersection Observer options
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            // Create observer
+            const heritageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add animation class
+                        entry.target.classList.add('mclaren-animate-in');
+                        
+                        // Optional: Stop observing after animation
+                        heritageObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Wait for DOM to be ready
+            function initHeritageAnimations() {
+                // Select all animatable elements
+                const animatableElements = document.querySelectorAll(
+                    '.mclaren-heritage-badge, ' +
+                    '.mclaren-heritage-title, ' +
+                    '.mclaren-heritage-description, ' +
+                    '.mclaren-heritage-card'
+                );
+
+                // Observe each element
+                animatableElements.forEach(element => {
+                    heritageObserver.observe(element);
+                });
+
+                // Add smooth scroll behavior
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        const href = this.getAttribute('href');
+                        if (href !== '#') {
+                            e.preventDefault();
+                            const target = document.querySelector(href);
+                            if (target) {
+                                target.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }
+                        }
+                    });
+                });
+
+                // Enhanced hover effects for cards
+                const heritageCards = document.querySelectorAll('.mclaren-heritage-card');
+                
+                heritageCards.forEach(card => {
+                    card.addEventListener('mouseenter', function() {
+                        // Add subtle rotation effect on hover
+                        this.style.transform = 'translateY(-8px) scale(1.02)';
+                    });
+
+                    card.addEventListener('mouseleave', function() {
+                        this.style.transform = '';
+                    });
+                });
+
+                // Log initialization
+                console.log('McLaren Heritage Section initialized');
+            }
+
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initHeritageAnimations);
+            } else {
+                initHeritageAnimations();
+            }
+
+            // Optional: Re-trigger animations on window resize (for responsive testing)
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    console.log('McLaren Heritage Section: Responsive layout adjusted');
+                }, 250);
+            });
+
+        })();
