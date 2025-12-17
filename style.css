@@ -11,7 +11,7 @@
         body {
             font-family: 'Arial', sans-serif;
             overflow-x: hidden;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #3a3a3a 100%);
+           background: radial-gradient(50% 50% at 50% 50%, #222225 0%, #020203 100%);
             color: #ffffff;
         }
 
@@ -29,13 +29,6 @@
             background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: #ff8c00;
-            letter-spacing: -1px;
-            text-transform: uppercase;
-        }
 
         .nav-links {
             display: flex;
@@ -187,7 +180,7 @@
             transform: translate(-50%, -50%);
             width: 1000px;
             height: 600px;
-            z-index: 5;
+            z-index: 99;
             opacity: 0;
             animation: fadeIn 1.5s ease forwards 0.9s;
         }
@@ -308,7 +301,6 @@
             position: relative;
             width: 100%;
             padding: 8rem 2rem;
-            background: radial-gradient(ellipse at center, #1a1a1a 0%, #000000 70%);
             overflow: hidden;
         }
 
@@ -328,7 +320,6 @@
             border: 1.5px solid rgba(255, 140, 0, 0.6);
             border-radius: 50px;
             margin-bottom: 2.5rem;
-            opacity: 0;
             transform: translateY(30px);
             transition: all 0.3s ease;
         }
@@ -364,12 +355,16 @@
             font-size: 4.5rem;
             font-weight: 900;
             line-height: 1.1;
+            width: 100%;
+            display: flex;
             letter-spacing: 2px;
             text-transform: uppercase;
             margin: 0;
-            opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease, transform 0.8s ease;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .mclaren-heritage-title.mclaren-animate-in {
@@ -393,12 +388,11 @@
 
         .mclaren-heritage-description {
             max-width: 650px;
-            margin: 0 auto 5rem;
+            margin: 25px auto 5rem;
             font-size: 1.1rem;
             line-height: 1.8;
             color: #aaaaaa;
             text-align: center;
-            opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease, transform 0.8s ease;
             transition-delay: 0.2s;
@@ -427,7 +421,6 @@
             padding: 3rem 2rem;
             text-align: center;
             backdrop-filter: blur(10px);
-            opacity: 0;
             transform: translateY(50px);
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -457,10 +450,9 @@
             border-radius: 16px;
             padding: 1px;
             background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    
             -webkit-mask-composite: xor;
             mask-composite: exclude;
-            opacity: 0;
             transition: opacity 0.3s ease;
         }
 
