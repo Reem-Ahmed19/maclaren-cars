@@ -57,8 +57,37 @@
             });
         });
 
-         (function() {
+          (function() {
             'use strict';
+
+            // ===== CUSTOM SCROLLBAR INTERACTIONS =====
+            
+            let scrollTimeout;
+            
+            // Add scrolling class for pulse animation
+            function handleScroll() {
+                document.body.classList.add('mclaren-scrolling');
+                
+                clearTimeout(scrollTimeout);
+                
+                scrollTimeout = setTimeout(() => {
+                    document.body.classList.remove('mclaren-scrolling');
+                }, 150);
+            }
+
+            // Throttle scroll events for performance
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        handleScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            // ===== HERITAGE SECTION SCROLL ANIMATIONS =====
 
             // Intersection Observer options
             const observerOptions = {
@@ -128,6 +157,7 @@
 
                 // Log initialization
                 console.log('McLaren Heritage Section initialized');
+                console.log('McLaren Custom Scrollbar active');
             }
 
             // Initialize when DOM is ready
