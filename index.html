@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McLaren - Redefined Performance</title>
+    
+    <!-- Model Viewer Library -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">McLaren</div>
+        <ul class="nav-links">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#models">MODELS</a></li>
+            <li><a href="#innovation">INNOVATION</a></li>
+            <li><a href="#sustainability">SUSTAINABILITY</a></li>
+        </ul>
+        <button class="explore-btn">EXPLORE</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Background Lines -->
+        <div class="bg-lines">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <!-- 3D Car Model -->
+        <div class="car-container">
+            <model-viewer
+                src="models/maclaren 3d car 1.glb"
+                alt="McLaren Supercar"
+                auto-rotate
+                auto-rotate-delay="1000"
+                rotation-per-second="20deg"
+                camera-orbit="45deg 75deg 8m"
+                min-camera-orbit="auto auto 6m"
+                max-camera-orbit="auto auto 12m"
+                camera-controls
+                touch-action="pan-y"
+                disable-zoom
+                environment-image="neutral"
+                shadow-intensity="0.8"
+                exposure="1.2"
+                loading="eager">
+            </model-viewer>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <div class="accent-text">REDEFINED</div>
+            <h1 class="main-headline">PERFORMANCE</h1>
+            <p class="hero-description">
+                Pioneering automotive excellence since 1963. Where racing heritage meets cutting-edge innovation.
+            </p>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span class="scroll-text">SCROLL</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <script src="code.js"></script>
+</body>
+</html>
