@@ -10,10 +10,6 @@
             --deep-black: #0a0a0a;
             --charcoal: #1a1a1a;
         }
-
-        /* ===== CUSTOM SCROLLBAR – MCLAREN THEME ===== */
-        
-        /* WebKit browsers (Chrome, Safari, Edge) */
         ::-webkit-scrollbar {
             width: 10px;
             background: var(--deep-black);
@@ -129,7 +125,7 @@
             box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
         }
 
-        /* ===== HERO SECTION ===== */
+        /*  HERO SECTION  */
         .hero {
             position: relative;
             height: 100vh;
@@ -359,7 +355,7 @@
             margin: 0 auto;
         }
 
-        /* ===== SECTION HEADER ===== */
+        /*  SECTION HEADER  */
         
         .mclaren-heritage-badge {
             display: inline-flex;
@@ -452,7 +448,7 @@
             transform: translateY(0);
         }
 
-        /* ===== FEATURE CARDS GRID ===== */
+        /*  FEATURE CARDS GRID  */
         
         .mclaren-heritage-cards-grid {
             display: grid;
@@ -567,7 +563,7 @@
             filter: drop-shadow(0 0 10px rgba(255, 140, 0, 0.6));
         }
 
-        /* ===== CARD CONTENT ===== */
+        /* CARD CONTENT  */
         
         .mclaren-heritage-card-title {
             font-size: 1.5rem;
@@ -584,7 +580,7 @@
             margin: 0;
         }
 
-        /* ===== RESPONSIVE DESIGN ===== */
+        /*  RESPONSIVE DESIGN  */
         
         @media (max-width: 1024px) {
             .mclaren-heritage-section {
