@@ -16,15 +16,52 @@
 <body>
     <!-- Navigation -->
     <nav>
-       <img src="pic/mclaren-logo-fullblack 1.png" alt="">
+          <img src="pic/mclaren-logo-fullblack 1.png" alt="">
         <ul class="nav-links">
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#models">MODELS</a></li>
+          <li><a href="#home" class="active">HOME</a></li>
+            <li class="dropdown">
+                <a href="#models" id="models-toggle">
+                    MODELS
+                    <span class="dropdown-arrow">▼</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <div class="dropdown-header">
+                        <div class="dropdown-title">Our Collection</div>
+                    </div>
+                    <li><a href="#720s">
+                        <span>McLaren 720S</span>
+                        <span class="model-tag">SUPERCAR</span>
+                    </a></li>
+                    <li><a href="#artura">
+                        <span>McLaren Artura</span>
+                        <span class="model-tag">HYBRID</span>
+                    </a></li>
+                    <li><a href="#gt">
+                        <span>McLaren GT</span>
+                        <span class="model-tag">GRAND TOURER</span>
+                    </a></li>
+                    <li><a href="#765lt">
+                        <span>McLaren 765LT</span>
+                        <span class="model-tag">LONGTAIL</span>
+                    </a></li>
+                    <li><a href="#speedtail">
+                        <span>McLaren Speedtail</span>
+                        <span class="model-tag">HYPER-GT</span>
+                    </a></li>
+                    <li><a href="#p1">
+                        <span>McLaren P1</span>
+                        <span class="model-tag">ICON</span>
+                    </a></li>
+                </ul>
+            </li>
             <li><a href="#innovation">INNOVATION</a></li>
             <li><a href="#sustainability">SUSTAINABILITY</a></li>
         </ul>
-        <button class="explore-btn">EXPLORE</button>
+        <button class="explore-btn">
+            <span class="btn-text">EXPLORE</span>
+        </button>
     </nav>
+
 
     <!-- Hero Section -->
     <section class="hero">
@@ -41,7 +78,7 @@
         </div>
 
         <!-- 3D Car Model -->
-        <div class="car-container">
+        <div class="car-container2">
             <model-viewer
                 src="models/maclaren 3d car 1.glb"
                 alt="McLaren Supercar"
@@ -149,6 +186,56 @@
             </div>
         </div>
      </section>
+  <div class="timeline-container">
+        <div class="timeline-line"></div>
+        
+        <div class="timeline-item left">
+            <div class="dot"></div>
+            <div class="content">
+                <div class="year">1963</div>
+                <div class="title">Foundation</div>
+                <div class="description">Bruce McLaren Racing founded in New Zealand</div>
+            </div>
+        </div>
+
+        <div class="timeline-item right">
+            <div class="dot"></div>
+            <div class="content">
+                <div class="year">1974</div>
+                <div class="title">First F1 Championship</div>
+                <div class="description">Emerson Fittipaldi secures our first drivers' title</div>
+            </div>
+        </div>
+
+        <div class="timeline-item left">
+            <div class="dot"></div>
+            <div class="content">
+                <div class="year">1988</div>
+                <div class="title">Dominant Era</div>
+                <div class="description">Winning 15 of 16 races with Senna and Prost</div>
+            </div>
+        </div>
+
+        <div class="timeline-item right">
+            <div class="dot"></div>
+            <div class="content">
+                <div class="year">1992</div>
+                <div class="title">Road Cars Born</div>
+                <div class="description">McLaren F1 revolutionizes automotive engineering</div>
+            </div>
+        </div>
+
+        <div class="timeline-item left">
+            <div class="dot"></div>
+            <div class="content">
+                <div class="year">2025</div>
+                <div class="title">Electric Future</div>
+                <div class="description">Leading the transition to sustainable performance</div>
+            </div>
+        </div>
+    </div>
+
+
 
     <script src="code.js"></script>
 </body>

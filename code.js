@@ -1,3 +1,28 @@
+         const modelsToggle = document.getElementById('models-toggle');
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
+        // Toggle dropdown on click
+        modelsToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        // Prevent dropdown from closing when clicking inside it
+        dropdownMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+ 
+ 
+ 
  // ===== SMOOTH INTERACTIONS =====
         
         // Hero hover glow enhancement
@@ -177,3 +202,38 @@
             });
 
         })();
+         
+
+         const items = document.querySelectorAll('.timeline-item');
+        
+        items.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                const dot = this.querySelector('.dot');
+                dot.style.transform = 'scale(1.5)';
+                dot.style.transition = 'transform 0.3s ease';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                const dot = this.querySelector('.dot');
+                dot.style.transform = 'scale(1)';
+            });
+        });
+
+        // Scroll reveal animation (if timeline is taller)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        items.forEach(item => {
+            observer.observe(item);
+        });

@@ -54,8 +54,11 @@
             color: #ffffff;
         }
 
-        /*  NAVIGATION  */
+      /*  NAVIGATION  */
         nav {
+             background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px) saturate(150%);
+  border-bottom: 1px solid #ff8c0044;
             position: fixed;
             top: 0;
             left: 0;
@@ -68,14 +71,27 @@
             background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
         }
 
+        .logo {
+            width: 120px;
+            height: auto;
+        }
 
         .nav-links {
+            font-family: "Montserrat Alternates";
             display: flex;
             gap: 3rem;
             list-style: none;
         }
+        /* Active link styles */
+.nav-links > li > a.active {
+    color: #ff8c00;
+}
 
-        .nav-links a {
+.nav-links > li > a.active::after {
+    width: 100%;
+    background: #ff8c00;
+}
+        .nav-links > li > a {
             color: #cccccc;
             text-decoration: none;
             font-size: 0.9rem;
@@ -84,9 +100,10 @@
             text-transform: uppercase;
             position: relative;
             transition: color 0.3s ease;
+            cursor: pointer;
         }
 
-        .nav-links a::after {
+        .nav-links > li > a::after {
             content: '';
             position: absolute;
             bottom: -5px;
@@ -97,15 +114,161 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover {
+        .nav-links > li > a:hover {
             color: #ffffff;
         }
 
-        .nav-links a:hover::after {
+        .nav-links > li > a:hover::after {
             width: 100%;
         }
 
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dropdown-arrow {
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 2rem);
+            left: 50%;
+            transform: translateX(-50%) scale(0.95);
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.98) 0%, rgba(10, 10, 10, 0.98) 100%);
+            backdrop-filter: blur(20px);
+            list-style: none;
+            padding: 0;
+            min-width: 320px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 1px solid rgba(255, 140, 0, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9),
+                        0 0 40px rgba(255, 140, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff8c00, #ff6b00, #ff8c00);
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) scale(1);
+            top: calc(100% + 1rem);
+        }
+
+        .dropdown-header {
+            padding: 1.5rem 1.5rem 1rem;
+            border-bottom: 1px solid rgba(255, 140, 0, 0.1);
+            background: linear-gradient(180deg, rgba(255, 140, 0, 0.05) 0%, transparent 100%);
+        }
+
+        .dropdown-title {
+            font-size: 0.75rem;
+            color: #ff8c00;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .dropdown-menu li {
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dropdown-menu li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #ff8c00;
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-menu li:hover::before {
+            transform: scaleY(1);
+        }
+
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 1.5rem;
+            color: #cccccc;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .dropdown-menu a::after {
+            content: '→';
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            color: #ff8c00;
+            font-size: 1.2rem;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(255, 140, 0, 0.08);
+            color: #ffffff;
+            padding-left: 2rem;
+        }
+
+        .dropdown-menu a:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .model-tag {
+            font-size: 0.65rem;
+            padding: 0.2rem 0.5rem;
+            background: rgba(255, 140, 0, 0.2);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            border-radius: 2px;
+            color: #ff8c00;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
         .explore-btn {
+            font-family: "Montserrat Alternates";
             background: #ff8c00;
             color: #000000;
             padding: 0.8rem 2rem;
@@ -117,6 +280,26 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .explore-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .explore-btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .explore-btn:hover {
@@ -125,14 +308,21 @@
             box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
         }
 
+        .btn-text {
+            position: relative;
+            z-index: 1;
+        }
+
         /*  HERO SECTION  */
         .hero {
             position: relative;
+            width: 100%;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            top: 50px;
         }
 
         /* Animated Background Lines */
@@ -214,10 +404,8 @@
         }
 
         /* 3D Car Container */
-        .car-container {
+        .car-container2 {
             position: absolute;
-            top: 50%;
-            left: 50%;
             transform: translate(-50%, -50%);
             width: 1000px;
             height: 600px;
@@ -251,7 +439,7 @@
         .scroll-indicator {
             position: absolute;
             bottom: 0rem;
-            left: 50%;
+            left: 48%;
             transform: translateX(-50%);
             display: flex;
             flex-direction: column;
@@ -305,7 +493,7 @@
                 font-size: 6rem;
             }
             
-            .car-container {
+            .car-container2 {
                 width: 800px;
                 height: 500px;
             }
@@ -329,7 +517,7 @@
                 font-size: 1rem;
             }
 
-            .car-container {
+            .car-container2 {
                 width: 100%;
                 height: 400px;
             }
@@ -384,6 +572,7 @@
         }
 
         .mclaren-heritage-badge-text {
+            font-family: "Montserrat Alternates";
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 2px;
@@ -418,12 +607,14 @@
         }
 
         .mclaren-heritage-title-line-1 {
+            font-family: space;
             display: block;
             color: #ffffff;
             margin-bottom: 0.2rem;
         }
 
         .mclaren-heritage-title-line-2 {
+             font-family: space;
             display: block;
             background: linear-gradient(90deg, #ff8c00 0%, #ffb347 100%);
             -webkit-background-clip: text;
@@ -432,6 +623,7 @@
         }
 
         .mclaren-heritage-description {
+            font-family: "Montserrat Alternates";
             max-width: 650px;
             margin: 25px auto 5rem;
             font-size: 1.1rem;
@@ -451,6 +643,7 @@
         /*  FEATURE CARDS GRID  */
         
         .mclaren-heritage-cards-grid {
+            font-family: "Montserrat Alternates";
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
@@ -650,5 +843,135 @@
         }
 
 
+ .timeline-container {
+ 
+            position: relative;
+            width: 100%;
+        }
 
-        
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                rgba(255, 140, 0, 0.3) 10%, 
+                rgba(255, 140, 0, 0.3) 90%, 
+                transparent 100%);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 80px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.8s; }
+        .timeline-item:nth-child(5) { animation-delay: 1s; }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item.left .content {
+            text-align: right;
+            padding-right: 60px;
+            width: 50%;
+        }
+
+        .timeline-item.right .content {
+            text-align: left;
+            padding-left: 60px;
+            width: 50%;
+            margin-left: 50%;
+        }
+
+        .year {
+            font-family: Space ;
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #ff8c00;
+            margin-bottom: 8px;
+        }
+
+        .title {
+                   font-family: "Montserrat Alternates";
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .description {
+                   font-family: "Montserrat Alternates";
+            font-size: 13px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        .dot {
+            position: absolute;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            background: #ff8c00;
+            border-radius: 50%;
+            border: 3px solid #000;
+            box-shadow: 0 0 0 2px #ff8c00;
+            z-index: 2;
+        }
+
+        .timeline-item.left .dot {
+            right: calc(50% - 6px);
+        }
+
+        .timeline-item.right .dot {
+            left: calc(50% - 6px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item.right .content {
+                margin-left: 0;
+                padding-left: 60px;
+                text-align: left;
+            }
+
+            .timeline-item.left .content {
+                padding-left: 60px;
+                padding-right: 20px;
+                text-align: left;
+            }
+
+            .timeline-line {
+                left: 20px;
+            }
+
+            .timeline-item.left .dot,
+            .timeline-item.right .dot {
+                left: 14px;
+                right: auto;
+            }
+
+            .year {
+                font-size: 36px;
+            }
+        }
