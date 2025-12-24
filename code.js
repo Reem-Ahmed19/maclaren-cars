@@ -237,3 +237,64 @@
         items.forEach(item => {
             observer.observe(item);
         });
+
+
+        
+
+        const animateOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.stat-card-item, .feature-card-module').forEach(el => {
+            animateOnScroll.observe(el);
+        });
+
+        // Dynamic number counter for stats
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = value + (element.dataset.suffix || '');
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Trigger counter animations when visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    entry.target.classList.add('counted');
+                    const valueElement = entry.target.querySelector('.stat-value-number');
+                    const endValue = valueElement.textContent.match(/\d+/)?.[0] || 0;
+                    if (endValue) {
+                        valueElement.dataset.suffix = valueElement.textContent.replace(endValue, '');
+                        animateValue(valueElement, 0, parseInt(endValue), 2000);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-card-item').forEach(stat => {
+            statsObserver.observe(stat);
+        });
+
+        // Parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            
+            document.querySelectorAll('.stat-icon-wrapper').forEach(icon => {
+                icon.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        });
