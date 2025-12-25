@@ -88,16 +88,16 @@
 
         
         // Ensure smooth auto-rotation
-        modelViewer.addEventListener('load', () => {
-            console.log('3D model loaded successfully');
-        });
+        // modelViewer.addEventListener('load', () => {
+        //     console.log('3D model loaded successfully');
+        // });
 
         // Optional: Add custom camera animation on page load
-        setTimeout(() => {
-            if (modelViewer) {
-                modelViewer.cameraOrbit = '45deg 75deg 8m';
-            }
-        }, 1000);
+        // setTimeout(() => {
+        //     if (modelViewer) {
+        //         modelViewer.cameraOrbit = '45deg 75deg 8m';
+        //     }
+        // }, 1000);
 
         // Explore button interaction
         const exploreBtn = document.querySelector('.explore-btn');
@@ -593,3 +593,130 @@
         // Console welcome message
         console.log('%c🏎️ McLaren Performance Selector', 'color: #ff8c00; font-size: 20px; font-weight: bold;');
         console.log('%cExperience the ultimate in automotive excellence', 'color: #fff; font-size: 12px;');
+
+
+          // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-content');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                hero.style.opacity = 1 - scrolled / 700;
+            }
+        });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        // Animate feature cards on scroll
+        const featureObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.feature-card').forEach(card => {
+            featureObserver.observe(card);
+        });
+
+        // Interactive model container glow effect
+        const modelContainer = document.querySelector('.model-container');
+        if (modelContainer) {
+            modelContainer.addEventListener('mousemove', (e) => {
+                const rect = modelContainer.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                modelContainer.style.background = `
+                    radial-gradient(circle at ${x}px ${y}px, 
+                    rgba(255, 140, 0, 0.2), 
+                    rgba(0, 0, 0, 0.5))
+                `;
+            });
+
+            modelContainer.addEventListener('mouseleave', () => {
+                modelContainer.style.background = `
+                    linear-gradient(135deg, 
+                    rgba(255, 140, 0, 0.1), 
+                    rgba(0, 0, 0, 0.5))
+                `;
+            });
+        }
+
+
+
+
+
+
+document.querySelectorAll('.ui-color').forEach(el => {
+  el.style.background = el.dataset.color;
+});
+
+
+
+
+
+
+
+
+
+
+const modelViewer = document.querySelector('#carModel');
+const colorButtons = document.querySelectorAll('.car-color');
+
+modelViewer.addEventListener('load', () => {
+  const paint = modelViewer.model.getMaterialByName('SPaint_Material1');
+
+  if (!paint) {
+    console.error('SPaint_Material1 not found');
+    return;
+  }
+
+  // Apply initial color (first button)
+  applyColor(paint, colorButtons[0].dataset.color);
+
+  colorButtons.forEach(btn => {
+    // set dot background
+    btn.style.backgroundColor = btn.dataset.color;
+
+    btn.addEventListener('click', () => {
+      applyColor(paint, btn.dataset.color);
+
+      colorButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+});
+
+function applyColor(material, hex) {
+  const [r, g, b] = hexToRGB(hex);
+  material.pbrMetallicRoughness.setBaseColorFactor([r, g, b, 1]);
+}
+
+function hexToRGB(hex) {
+  const num = parseInt(hex.replace('#', ''), 16);
+  return [
+    ((num >> 16) & 255) / 255,
+    ((num >> 8) & 255) / 255,
+    (num & 255) / 255
+  ];
+}

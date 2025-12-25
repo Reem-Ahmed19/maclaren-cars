@@ -108,10 +108,10 @@
         <!-- Hero Content -->
         <div class="hero-content">
             <div class="accent-text">REDEFINED</div>
-            <h1 class="main-headline">PERFORMANCE</h1>
-            <p class="hero-description">
+            <div class="main-headline">PERFORMANCE</div>
+            <div class="hero-description">
                 Pioneering automotive excellence since 1963. Where racing heritage meets cutting-edge innovation.
-            </p>
+            </div>
         </div>
 
         <!-- Scroll Indicator -->
@@ -708,6 +708,58 @@
             All Brands Testing McLaren's Shape Of Things From Woodcliff Lake NJ To Egypt
         </div>
     </div>
+
+
+     <!-- Hero Section -->
+    <section>
+         <!-- Badge -->
+            <div class="mclaren-heritage-header">
+                <div class="mclaren-heritage-badge">
+                    <span class="mclaren-heritage-badge-text">Future Technology</span>
+                </div>
+            </div>
+
+        <div class="hero-headline-wrapper">
+            <h1 class="main-headline-primary">THE FUTURE OF</h1>
+            <h1 class="main-headline-accent">AUTOMOTIVE AR</h1>
+        </div>
+
+        <p class="hero-subheadline-description">
+          Experience McLaren through cutting-edge 3D visualization and augmented reality. The showroom comes to you.
+        </p>
+    </section>
+
+    <!-- Model Viewer Section -->
+    <section class="model-section" >
+        <div class="model-container">
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+            
+            <div class="model-viewer" >
+           <model-viewer
+                id="carModel"
+                src="models/2017_mclaren_720s.glb"
+                ar
+                ar-modes="webxr scene-viewer quick-look"
+                camera-controls
+                tone-mapping="neutral"
+                shadow-intensity="1"
+                camera-orbit="90deg 75deg 3.5m">
+            </model-viewer>
+
+
+<div class="car-color-options">
+  <button class="car-color active" data-color="#b00c0c"></button>
+  <button class="car-color" data-color="#3c4595"></button>
+  <button class="car-color" data-color="#49953c"></button>
+  <button class="car-color" data-color="#d66c20"></button>
+</div>
+
+        </div>
+        </div>
+    </section>
 
 
     <script src="code.js"></script>
