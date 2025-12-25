@@ -798,3 +798,461 @@ function hexToRGB(hex) {
                 }, 10, this);
             });
         }
+
+
+         // Ripple effect for buttons
+        function createRipple(event) {
+            const button = event.currentTarget;
+            const ripple = document.createElement('span');
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple-effect');
+
+            button.appendChild(ripple);
+
+            setTimeout(() => ripple.remove(), 600);
+        }
+
+        // Add ripple effect to all buttons
+        const buttons = document.querySelectorAll('.primary-action-btn, .secondary-action-btn');
+        buttons.forEach(button => {
+            button.addEventListener('click', createRipple);
+        });
+
+        // Favorite button toggle
+        const favoriteBtn = document.getElementById('favoriteBtn');
+        let isFavorited = false;
+
+        favoriteBtn.addEventListener('click', function() {
+            isFavorited = !isFavorited;
+            const path = this.querySelector('path');
+            
+            if (isFavorited) {
+                path.style.fill = '#ff8c00';
+                path.style.stroke = '#ff8c00';
+                this.style.background = 'rgba(255, 140, 0, 0.2)';
+                this.style.borderColor = '#ff8c00';
+            } else {
+                path.style.fill = 'none';
+                path.style.stroke = '#fff';
+                this.style.background = 'rgba(255, 255, 255, 0.05)';
+                this.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            }
+
+            // Add bounce animation
+            this.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 200);
+        });
+
+        // Share button functionality
+        const shareBtn = document.getElementById('shareBtn');
+        shareBtn.addEventListener('click', function() {
+            // Rotate animation
+            this.style.transform = 'rotate(360deg)';
+            setTimeout(() => {
+                this.style.transform = 'rotate(0deg)';
+            }, 500);
+
+            // Simulate share action
+            if (navigator.share) {
+                navigator.share({
+                    title: 'McLaren 720S',
+                    text: 'Check out the McLaren 720S - Velocity Redefined',
+                    url: window.location.href
+                }).catch(() => {
+                    console.log('Share cancelled');
+                });
+            } else {
+                alert('Share: McLaren 720S');
+            }
+        });
+
+        // Configure button action
+        const configureBtn = document.getElementById('configureBtn');
+        configureBtn.addEventListener('click', function() {
+            console.log('Configure clicked');
+            alert('Opening McLaren 720S configurator...');
+        });
+
+        // Test Drive button action
+        const testDriveBtn = document.getElementById('testDriveBtn');
+        testDriveBtn.addEventListener('click', function() {
+            console.log('Test Drive clicked');
+            alert('Schedule your McLaren 720S test drive...');
+        });
+
+    
+
+        const statCards = document.querySelectorAll('.stat-card-item');
+        statCards.forEach(card => observer.observe(card));
+
+        // Add hover sound effect (optional - using Web Audio API)
+        function playHoverSound() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.value = 800;
+            oscillator.type = 'sine';
+            
+            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.1);
+        }
+
+        // Add subtle hover sound to stat cards
+        statCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Uncomment to enable sound
+                // playHoverSound();
+            });
+        });
+
+        // Parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            
+            const modelDesignation = document.querySelector('.model-designation');
+            modelDesignation.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+
+          // Interactive card hover effects with mouse tracking
+        const metricCards = document.querySelectorAll('.metric-card-container');
+
+        metricCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                
+                card.style.setProperty('--mouse-x', `${x}%`);
+                card.style.setProperty('--mouse-y', `${y}%`);
+            });
+
+            // Add click animation
+            card.addEventListener('click', function() {
+                const value = this.querySelector('.metric-value-primary');
+                value.classList.add('pulse-animation');
+                value.classList.add('glow-effect');
+                
+                setTimeout(() => {
+                    value.classList.remove('pulse-animation');
+                    value.classList.remove('glow-effect');
+                }, 2000);
+            });
+        });
+
+        // Spec row hover effect with smooth transitions
+        const specRows = document.querySelectorAll('.spec-row-item');
+        
+        specRows.forEach(row => {
+            row.addEventListener('mouseenter', function() {
+                const value = this.querySelector('.spec-property-value');
+                value.style.color = '#ff8c00';
+                value.style.transform = 'scale(1.05)';
+                value.style.transition = 'all 0.3s ease';
+            });
+
+            row.addEventListener('mouseleave', function() {
+                const value = this.querySelector('.spec-property-value');
+                value.style.color = '#fff';
+                value.style.transform = 'scale(1)';
+            });
+        });
+
+     
+
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        entry.target.style.transition = 'all 0.6s ease-out';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                }
+            });
+        }, observerOptions);
+
+        const specPanels = document.querySelectorAll('.spec-category-panel');
+        specPanels.forEach(panel => fadeInObserver.observe(panel));
+
+        // Dynamic counter animation for metric values
+        function animateValue(element, start, end, duration) {
+            const range = end - start;
+            const increment = range / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+                    current = end;
+                    clearInterval(timer);
+                }
+                
+                const text = element.textContent;
+                const numericPart = parseFloat(text);
+                const suffix = text.replace(numericPart.toString(), '').trim();
+                
+                element.textContent = Math.round(current) + ' ' + suffix;
+            }, 16);
+        }
+
+        // Trigger counter animation on card click
+        metricCards.forEach(card => {
+            const originalValue = card.querySelector('.metric-value-primary').textContent;
+            
+            card.addEventListener('dblclick', function() {
+                const valueElement = this.querySelector('.metric-value-primary');
+                const numericValue = parseFloat(valueElement.textContent);
+                
+                if (!isNaN(numericValue)) {
+                    animateValue(valueElement, 0, numericValue, 1000);
+                }
+            });
+        });
+
+        // Add ripple effect on panel click
+        const panels = document.querySelectorAll('.spec-category-panel');
+        
+        panels.forEach(panel => {
+            panel.addEventListener('click', function(e) {
+                const ripple = document.createElement('div');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 140, 0, 0.3)';
+                ripple.style.width = '20px';
+                ripple.style.height = '20px';
+                ripple.style.left = e.offsetX + 'px';
+                ripple.style.top = e.offsetY + 'px';
+                ripple.style.transform = 'translate(-50%, -50%) scale(0)';
+                ripple.style.animation = 'rippleEffect 0.6s ease-out';
+                ripple.style.pointerEvents = 'none';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rippleEffect {
+                to {
+                    transform: translate(-50%, -50%) scale(20);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Console log for debugging
+        console.log('McLaren 720S Specifications loaded');
+        console.log(`Total metrics: ${metricCards.length}`);
+        console.log(`Total spec categories: ${specPanels.length}`);
+
+          document.addEventListener('DOMContentLoaded', function() {
+            const statCards = document.querySelectorAll('.stat-card');
+            const featureModules = document.querySelectorAll('.feature-module');
+            
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            statCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+
+            featureModules.forEach((module, index) => {
+                module.style.opacity = '0';
+                module.style.transform = 'translateY(30px)';
+                module.style.transition = `all 0.6s ease ${index * 0.15}s`;
+                observer.observe(module);
+            });
+
+            statCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 8px 30px rgba(255, 140, 0, 0.3)';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = 'none';
+                });
+            });
+
+            const statValues = document.querySelectorAll('.stat-value');
+            statValues.forEach(stat => {
+                const finalValue = stat.textContent;
+                const isNumber = !isNaN(parseFloat(finalValue));
+                
+                if (isNumber) {
+                    const numValue = parseFloat(finalValue);
+                    let currentValue = 0;
+                    const increment = numValue / 50;
+                    
+                    const counter = setInterval(() => {
+                        currentValue += increment;
+                        if (currentValue >= numValue) {
+                            stat.textContent = finalValue;
+                            clearInterval(counter);
+                        } else {
+                            stat.textContent = currentValue.toFixed(finalValue.includes('.') ? 2 : 0);
+                        }
+                    }, 30);
+                }
+            });
+
+            document.querySelectorAll('.module-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        });
+
+           document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const fadeObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            const featureBlocks = document.querySelectorAll('.feature-block');
+            featureBlocks.forEach((block, index) => {
+                block.style.transitionDelay = `${index * 0.15}s`;
+                fadeObserver.observe(block);
+            });
+
+            const techModules = document.querySelectorAll('.tech-module');
+            techModules.forEach((module, index) => {
+                module.style.transitionDelay = `${index * 0.1}s`;
+                fadeObserver.observe(module);
+            });
+
+            const actionButtons = document.querySelectorAll('.action-button');
+            actionButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+
+                    const ripple = document.createElement('div');
+                    ripple.style.position = 'absolute';
+                    ripple.style.width = '5px';
+                    ripple.style.height = '5px';
+                    ripple.style.background = '#ff8c00';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.transform = 'translate(-50%, -50%)';
+                    ripple.style.animation = 'rippleEffect 0.6s ease-out';
+                    ripple.style.pointerEvents = 'none';
+                    
+                    const rect = this.getBoundingClientRect();
+                    ripple.style.left = (e.clientX - rect.left) + 'px';
+                    ripple.style.top = (e.clientY - rect.top) + 'px';
+                    
+                    this.style.position = 'relative';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes rippleEffect {
+                    to {
+                        width: 100px;
+                        height: 100px;
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+            const specCards = document.querySelectorAll('.spec-card');
+            specCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            });
+
+            const techIconWrappers = document.querySelectorAll('.tech-icon-wrapper');
+            techIconWrappers.forEach(icon => {
+                icon.addEventListener('mouseenter', function() {
+                    this.style.animation = 'pulse 0.5s ease-in-out infinite';
+                });
+                
+                icon.addEventListener('mouseleave', function() {
+                    this.style.animation = '';
+                });
+            });
+
+            const pulseStyle = document.createElement('style');
+            pulseStyle.textContent = `
+                @keyframes pulse {
+                    0%, 100% { transform: scale(1); }
+                    50% { transform: scale(1.1); }
+                }
+            `;
+            document.head.appendChild(pulseStyle);
+
+            document.querySelectorAll('.tech-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.color = '#ff8c00';
+                    this.style.paddingLeft = '25px';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.color = '';
+                    this.style.paddingLeft = '';
+                });
+            });
+        });

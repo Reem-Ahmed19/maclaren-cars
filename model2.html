@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McLaren 720S</title>
+    <link rel="stylesheet" href="style.css">
+     <link rel="icon" href="pic/images-removebg-preview.png" type="image/png">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hero-stage">
+        <div class="bg-video">
+  <video autoplay muted loop playsinline>
+    <source src="vid/McLaren 720s Super Series with Ayrton & Bruno Senna - Raise your Limits.mp4" type="video/mp4">
+  </video>
+</div>
+        <div class="top-navigation-bar">
+            <div class="back-navigation-link"><a href="index.html">Back to home</a></div>
+            <div class="action-icons-cluster">
+                <div class="icon-button-circular" id="favoriteBtn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </div>
+                <div class="icon-button-circular" id="shareBtn">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="18" cy="5" r="3"></circle>
+                        <circle cx="6" cy="12" r="3"></circle>
+                        <circle cx="18" cy="19" r="3"></circle>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-showcase-area">
+            <!-- Badge -->
+            <div class="mclaren-heritage-header">
+                <div class="mclaren-heritage-badge">
+                    <span class="mclaren-heritage-badge-text">Velocity Redefined</span>
+                </div>
+            </div>
+            <div class="model-designation">McLaren 720S</div>
+            <div class="vehicle-description">
+                The 720S combines extreme performance with day-to-day usability. A supercar that redefines the supercar experience.
+            </div>
+
+            <div class="cta-button-group">
+                <button class="primary-action-btn" id="configureBtn">Configure</button>
+                <button class="secondary-action-btn" id="testDriveBtn">Test Drive</button>
+            </div>
+
+            <div class="stats-display-grid">
+                <div class="stat-card-item">
+                    <div class="stat-label-text">Power</div>
+                    <div class="stat-value-number">710 HP</div>
+                </div>
+                <div class="stat-card-item">
+                    <div class="stat-label-text">0-60 mph</div>
+                    <div class="stat-value-number">2.9s</div>
+                </div>
+                <div class="stat-card-item">
+                    <div class="stat-label-text">Top Speed</div>
+                    <div class="stat-value-number">212 mph</div>
+                </div>
+                <div class="stat-card-item">
+                    <div class="stat-label-text">Starting At</div>
+                    <div class="price-indicator">$310,000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <!-- Hero Section -->
+    <section>
+         <!-- Badge -->
+            <div class="mclaren-heritage-header">
+                <div class="mclaren-heritage-badge">
+                    <span class="mclaren-heritage-badge-text">360° View</span>
+                </div>
+            </div>
+
+        <div class="hero-headline-wrapper">
+            <h1 class="main-headline-primary">Explore Every</h1>
+            <h1 class="main-headline-accent">Detail</h1>
+        </div>
+
+        <p class="hero-subheadline-description">
+         Interactive 3D model viewer with support for desktop, tablet, mobile, and MX glasses.
+        </p>
+    </section>
+
+    <!-- Model Viewer Section -->
+    <section class="model-section" >
+        <div class="model-container">
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+            
+            <div class="model-viewer2" >
+           <model-viewer
+                id="carModel"
+                src="models/2017_mclaren_720s.glb"
+                ar
+                ar-modes="webxr scene-viewer quick-look"
+                camera-controls
+                tone-mapping="neutral"
+                shadow-intensity="1"
+                camera-orbit="90deg 75deg 3.5m"
+                style="width: 100%; height: 1000px;">
+            </model-viewer>
+
+
+<div class="car-color-options">
+  <button class="car-color active" data-color="#b00c0c"></button>
+  <button class="car-color" data-color="#3c4595"></button>
+  <button class="car-color" data-color="#49953c"></button>
+  <button class="car-color" data-color="#d66c20"></button>
+</div>
+
+        </div>
+        </div>
+    </section>
+
+ <!-- Stats Section -->
+    <section class="stats-section" id="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">183</div>
+                <div class="stat-label">Race Wins</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Driver Championships</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Constructor Titles</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">60+</div>
+                <div class="stat-label">Years of Racing</div>
+            </div>
+        </div>
+    </section>
+
+     <div class="specifications-wrapper">
+        <!-- Title Section -->
+        <div class="title-section-block">
+            <div class="subtitle-accent">MECHANICAL SPECIFICATIONS</div>
+            <div class="main-title-display">
+                Pure <span class="title-highlight">Performance</span>
+            </div>
+            <div class="description-tagline">
+                Every specification engineered for the ultimate driving experience
+            </div>
+        </div>
+
+        <!-- Performance Metrics Grid -->
+        <div class="performance-metrics-grid">
+            <div class="metric-card-container" data-metric="power">
+                <div class="icon-wrapper-circle">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
+                    </svg>
+                </div>
+                <div class="metric-label-header">Power</div>
+                <div class="metric-value-primary">710 HP</div>
+                <div class="metric-subtitle-info">Peak horsepower</div>
+            </div>
+
+            <div class="metric-card-container" data-metric="torque">
+                <div class="icon-wrapper-circle">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <circle cx="12" cy="12" r="6"/>
+                        <line x1="12" y1="2" x2="12" y2="6"/>
+                        <line x1="12" y1="18" x2="12" y2="22"/>
+                    </svg>
+                </div>
+                <div class="metric-label-header">Torque</div>
+                <div class="metric-value-primary">568 lb-ft</div>
+                <div class="metric-subtitle-info">Peak torque</div>
+            </div>
+
+            <div class="metric-card-container" data-metric="acceleration">
+                <div class="icon-wrapper-circle">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </div>
+                <div class="metric-label-header">0-60 MPH</div>
+                <div class="metric-value-primary">2.9s 0-60 mph</div>
+                <div class="metric-subtitle-info">Acceleration</div>
+            </div>
+
+            <div class="metric-card-container" data-metric="topspeed">
+                <div class="icon-wrapper-circle">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <div class="metric-label-header">Top Speed</div>
+                <div class="metric-value-primary">212 mph</div>
+                <div class="metric-subtitle-info">Maximum velocity</div>
+            </div>
+
+            <div class="metric-card-container" data-metric="weight">
+                <div class="icon-wrapper-circle">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </div>
+                <div class="metric-label-header">Weight</div>
+                <div class="metric-value-primary">1,395kg</div>
+                <div class="metric-subtitle-info">Dry weight</div>
+            </div>
+
+            <div class="metric-card-container" data-metric="length">
+                <div class="icon-wrapper-circle">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    </svg>
+                </div>
+                <div class="metric-label-header">Length</div>
+                <div class="metric-value-primary">4,569mm</div>
+                <div class="metric-subtitle-info">Overall length</div>
+            </div>
+        </div>
+
+        <!-- Detailed Specifications -->
+        <div class="detailed-specs-container">
+            <div class="spec-category-panel">
+                <div class="category-title-bar">
+                    <div class="category-accent-line"></div>
+                    <div class="category-name-text">Engine & Drivetrain</div>
+                </div>
+                <div class="spec-details-list">
+                    <div class="spec-row-item">
+                        <div class="spec-property-name">Engine Type</div>
+                        <div class="spec-property-value">Twin-Turbo V8</div>
+                    </div>
+                    <div class="spec-row-item">
+                        <div class="spec-property-name">Displacement</div>
+                        <div class="spec-property-value">4.0L</div>
+                    </div>
+                    <div class="spec-row-item">
+                        <div class="spec-property-name">Transmission</div>
+                        <div class="spec-property-value">7-Speed SSG</div>
+                    </div>
+                    <div class="spec-row-item">
+                        <div class="spec-property-name">Drive Type</div>
+                        <div class="spec-property-value">Rear-Wheel Drive</div>
+                    </div>
+                    <div class="spec-row-item">
+                        <div class="spec-property-name">Fuel Type</div>
+                        <div class="spec-property-value">Premium Unleaded</div>
+                    </div>
+                    <div class="spec-row-item">
+                        <div class="spec-property-name">MPG Combined</div>
+                        <div class="spec-property-value">18 mpg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="spec-category-panel">
+                <div class="category-title-bar">
+                    <div class="category-accent-line"></div>
+                    <div class="category-name-text">Chassis & Dimensions</div>
+                </div>
+                <div class="spec-details-list">
+                    <div class="spec-row-item">
+                        <div class="spec-property-name">Chassis</div>
+                        <div class="spec-property-value">Carbon MonoCell III</div>
+                    </div>
+                    <div class="spec-row-item">
+                        <div class="spec-property-name">Wheelbase</div>
+                        <div class="spec-property-value">2,670mm</div>
+                    </div>
+                    <div class="spec-row-item">
+                        <div class="spec-property-name">Width</div>
+                        <div class="spec-property-value">2,161mm</div>
+                    </div>
+                    <div class="spec-row-item">
+                        <div class="spec-property-name">Height</div>
+                        <div class="spec-property-value">1,196mm</div>
+                    </div>
+                    <div class="spec-row-item">
+                        <div class="spec-property-name">Ground Clearance</div>
+                        <div class="spec-property-value">110mm</div>
+                    </div>
+                    <div class="spec-row-item">
+                        <div class="spec-property-name">Fuel Capacity</div>
+                        <div class="spec-property-value">72 liters</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disclaimer Footer -->
+        <div class="disclaimer-footer">
+            All specifications are subject to market availability and may vary by region. Contact your local McLaren retailer for detailed information.
+        </div>
+    </div>
+
+
+     <section>
+         <!-- Badge -->
+            <div class="mclaren-heritage-header">
+                <div class="mclaren-heritage-badge">
+                    <span class="mclaren-heritage-badge-text">Active Aerodynamics</span>
+                </div>
+            </div>
+
+        <div class="hero-headline-wrapper">
+            <h1 class="main-headline-primary">Cutting Through</h1>
+            <h1 class="main-headline-accent">Air</h1>
+        </div>
+
+        <p class="hero-subheadline-description">
+         Advanced aerodynamics that adapt in real-time to maximize downforce and minimize drag.
+        </p>
+    </section>
+
+        <div class="main-showcase">
+            <div class="visual-block animated-fade-in delay-3">
+                <img src="pic/5d5f35f7399af806e66437f858f49da4.jpg" alt="Active Wing System" class="feature-image">
+            </div>
+
+            <div class="content-block animated-fade-in delay-4">
+                <div class="section-heading">
+                    Active <span class="heading-highlight">Wing System</span>
+                </div>
+
+                <div class="description-text">
+                    Intelligent aerodynamic elements that automatically adjust based on speed, steering angle, and driving mode for optimal performance.
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"></div>
+                        <div class="stat-value">30%</div>
+                        <div class="stat-label">Max Downforce</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon"></div>
+                        <div class="stat-value">0.32</div>
+                        <div class="stat-label">Drag Coefficient</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon"></div>
+                        <div class="stat-value">100ms</div>
+                        <div class="stat-label">Response Time</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon"></div>
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Active Modes</div>
+                    </div>
+                </div>
+
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <div class="feature-bullet"></div>
+                        <div>Real-time adjustment based on driving conditions</div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-bullet"></div>
+                        <div>DRS (Drag Reduction System) for maximum speed</div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-bullet"></div>
+                        <div>High downforce mode for track performance</div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-bullet"></div>
+                        <div>Underbody airflow management</div>
+                    </li>
+                    <li class="feature-item">
+                        <div class="feature-bullet"></div>
+                        <div>Active front splitter and rear diffuser</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="secondary-features">
+            <div class="feature-module animated-fade-in">
+                <div class="module-title">Front Splitter</div>
+                <div class="module-description">
+                    Carbon fiber front splitter extends up to under the car, creating downforce while reducing lift.
+                </div>
+                <a href="#" class="module-link">Adjustable Height</a>
+            </div>
+
+            <div class="feature-module animated-fade-in delay-1">
+                <div class="module-title">Rear Diffuser</div>
+                <div class="module-description">
+                    Multi-channel rear diffuser accelerates air from underneath, generating significant downforce.
+                </div>
+                <a href="#" class="module-link">Active Sections</a>
+            </div>
+
+            <div class="feature-module animated-fade-in delay-2">
+                <div class="module-title">Side Air Intakes</div>
+                <div class="module-description">
+                    Strategically positioned intakes feed cooling air to the engine and manage side aerodynamics.
+                </div>
+                <a href="#" class="module-link">Optimized Flow</a>
+            </div>
+        </div>
+    </div>
+
+     <div class="supreme-wrapper">
+         <section>
+         <!-- Badge -->
+            <div class="mclaren-heritage-header">
+                <div class="mclaren-heritage-badge">
+                    <span class="mclaren-heritage-badge-text">Interior Excellence</span>
+                </div>
+            </div>
+
+        <div class="hero-headline-wrapper">
+            <h1 class="main-headline-primary">Driver-Focusedh</h1>
+            <h1 class="main-headline-accent">Cockpit</h1>
+        </div>
+
+        <p class="hero-subheadline-description">
+        Every element designed to enhance connection between driver and machine.
+        </p>
+    </section>
+
+
+        <div class="dual-panel-layout">
+            <div class="content-column">
+                <div class="performance-banner animate-fade delay-3">
+                    Crafted for <span class="banner-highlight">Performance</span>
+                </div>
+
+                <div class="intro-statement animate-fade delay-4">
+                    The McLaren 720S cockpit puts you at the center of the driving experience. Every surface, every control is positioned for intuitive operation at speed.
+                </div>
+
+                <div class="feature-block">
+                    <div class="feature-header">Racing Seats</div>
+                    <div class="feature-detail">
+                        Carbon fiber racing seats with Alcantara and leather upholstery. Fully adjustable with memory function.
+                    </div>
+                    <div class="action-button glow-effect">Alcantara, Seat & Comfort</div>
+                </div>
+
+                <div class="feature-block">
+                    <div class="feature-header">Digital Cockpit</div>
+                    <div class="feature-detail">
+                        High-resolution displays provide all essential information with customizable layouts for different driving modes.
+                    </div>
+                    <div class="action-button glow-effect">Configurable Clusters</div>
+                </div>
+
+                <div class="feature-block">
+                    <div class="feature-header">Premium Materials</div>
+                    <div class="feature-detail">
+                        Hand-stitched leather, brushed aluminum, and exposed carbon fiber throughout the interior.
+                    </div>
+                    <div class="action-button glow-effect">Boundless options available</div>
+                </div>
+            </div>
+
+            <div class="visual-column">
+                <div class="hero-visual animate-fade delay-3">
+                    <img src="pic/64e019a6e599c0a48e5372307df32955.jpg" 
+                         alt="McLaren Cockpit Interior" 
+                         class="cockpit-image">
+                    
+                    <div class="spec-badges">
+                        <div class="spec-card">
+                            <div class="spec-number">12-way</div>
+                            <div class="spec-label">Seat Adjustment</div>
+                        </div>
+                        <div class="spec-card">
+                            <div class="spec-number">8-inch</div>
+                            <div class="spec-label">Central Display</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tech-grid">
+            <div class="tech-module">
+                 <img class="tech-icon-wrapper" src="pic/Icon.png" alt="">
+                <div class="tech-title">Connected Car</div>
+                <ul class="tech-features-list">
+                    <li class="tech-item">Apple CarPlay</li>
+                    <li class="tech-item">Android Auto</li>
+                    <li class="tech-item">McLaren Track Telemetry</li>
+                    <li class="tech-item">WiFi Hotspot</li>
+                </ul>
+            </div>
+
+            <div class="tech-module">
+                <img class="tech-icon-wrapper" src="pic/Icon-1.png" alt="">
+                <div class="tech-title">Premium Audio</div>
+                <ul class="tech-features-list">
+                    <li class="tech-item">12 Speaker System</li>
+                    <li class="tech-item">Bowers & Wilkins</li>
+                    <li class="tech-item">Surround Sound</li>
+                    <li class="tech-item">Active Noise Control</li>
+                </ul>
+            </div>
+
+            <div class="tech-module">
+                <img class="tech-icon-wrapper" src="pic/Icon-2.png" alt="">
+                <div class="tech-title">Climate Control</div>
+                <ul class="tech-features-list">
+                    <li class="tech-item">Dual-Zone</li>
+                    <li class="tech-item">Auto Climate</li>
+                    <li class="tech-item">Air Quality Sensor</li>
+                    <li class="tech-item">Cabin Preconditioning</li>
+                </ul>
+            </div>
+
+            <div class="tech-module">
+                 <img class="tech-icon-wrapper" src="pic/Icon-3.png" alt="">
+                <div class="tech-title">Comfort Tech</div>
+                <ul class="tech-features-list">
+                    <li class="tech-item">McLaren Link</li>
+                    <li class="tech-item">Adaptive Cruise</li>
+                    <li class="tech-item">Memory Function</li>
+                    <li class="tech-item">Lumbar Support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+     <div class="bottom-container">
+        <div class="footer-main-wrapper">
+            <div class="footer-grid-layout">
+                <!-- Brand Identity Block -->
+                <div class="brand-identity-block">
+                    <img class="logo" src="pic/mclaren-logo-fullblack 1.png" alt="">
+                    <div class="brand-philosophy">
+                        Pioneering automotive excellence since 1963. Performance, Innovation, and luxury redefined.
+                    </div>
+                    <div class="social-connections">
+                        <a href="#" class="social-icon-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon-link" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Models Column -->
+                <div class="navigation-column">
+                    <div class="column-header">Models</div>
+                    <div class="link-collection">
+                        <a href="#" class="footer-nav-link">720S</a>
+                        <a href="#" class="footer-nav-link">Artura</a>
+                        <a href="#" class="footer-nav-link">GT</a>
+                        <a href="#" class="footer-nav-link">765LT</a>
+                        <a href="#" class="footer-nav-link">Speedtail</a>
+                        <a href="#" class="footer-nav-link">P1</a>
+                    </div>
+                </div>
+
+                <!-- Company Column -->
+                <div class="navigation-column">
+                    <div class="column-header">Company</div>
+                    <div class="link-collection">
+                        <a href="#" class="footer-nav-link">About McLaren</a>
+                        <a href="#" class="footer-nav-link">Racing Heritage</a>
+                        <a href="#" class="footer-nav-link">Technology</a>
+                        <a href="#" class="footer-nav-link">Careers</a>
+                        <a href="#" class="footer-nav-link">Press</a>
+                        <a href="#" class="footer-nav-link">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Support Column -->
+                <div class="navigation-column">
+                    <div class="column-header">Support</div>
+                    <div class="link-collection">
+                        <a href="#" class="footer-nav-link">Owner Portal</a>
+                        <a href="#" class="footer-nav-link">Service Centers</a>
+                        <a href="#" class="footer-nav-link">Parts & Accessories</a>
+                        <a href="#" class="footer-nav-link">Warranty</a>
+                        <a href="#" class="footer-nav-link">Track Days</a>
+                        <a href="#" class="footer-nav-link">FAQs</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legal Strip -->
+            <div class="legal-strip">
+                <div class="copyright-notice">
+                    © 2025 McLaren Automotive Limited. All rights reserved.
+                </div>
+                <div class="legal-links-group">
+                    <a href="#" class="legal-link-item">Privacy Policy</a>
+                    <a href="#" class="legal-link-item">Terms of Use</a>
+                    <a href="#" class="legal-link-item">Cookie Settings</a>
+                    <a href="#" class="legal-link-item">Legal</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="code.js"></script>
+</body>
+</html>
