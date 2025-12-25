@@ -1,6 +1,15 @@
-         const modelsToggle = document.getElementById('models-toggle');
+      const modelsToggle = document.getElementById('models-toggle');
         const dropdown = document.querySelector('.dropdown');
         const dropdownMenu = document.querySelector('.dropdown-menu');
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('navLinks');
+
+        // Burger menu toggle
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
 
         // Toggle dropdown on click
         modelsToggle.addEventListener('click', (e) => {
@@ -8,10 +17,16 @@
             dropdown.classList.toggle('active');
         });
 
-        // Close dropdown when clicking outside
+        // Close dropdown and mobile menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!dropdown.contains(e.target)) {
                 dropdown.classList.remove('active');
+            }
+            
+            if (!navLinks.contains(e.target) && !burger.contains(e.target)) {
+                burger.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
 
@@ -20,6 +35,24 @@
             e.stopPropagation();
         });
 
+        // Close mobile menu when clicking on a link (except dropdown toggle)
+        document.querySelectorAll('.nav-links > li > a:not(#models-toggle)').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close mobile menu when clicking on dropdown items
+        document.querySelectorAll('.dropdown-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('active');
+                navLinks.classList.remove('active');
+                dropdown.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
  
  
  
