@@ -760,3 +760,41 @@ function hexToRGB(hex) {
                 this.style.zIndex = '1';
             });
         }
+
+
+
+         var cards = document.querySelectorAll('.innovation-card');
+        
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            cards[i].addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        }
+
+
+
+          var tiles = document.querySelectorAll('.result-tile');
+        var rings = document.querySelectorAll('.pulse-ring');
+        
+        for (var i = 0; i < tiles.length; i++) {
+            tiles[i].addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            tiles[i].addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        }
+
+        for (var j = 0; j < rings.length; j++) {
+            rings[j].addEventListener('click', function() {
+                this.style.animation = 'none';
+                setTimeout(function(ring) {
+                    ring.style.animation = '';
+                }, 10, this);
+            });
+        }
