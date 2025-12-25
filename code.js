@@ -720,3 +720,43 @@ function hexToRGB(hex) {
     (num & 255) / 255
   ];
 }
+
+
+
+ document.addEventListener('DOMContentLoaded', () => {
+            const features = document.querySelectorAll('.voltage-item');
+            features.forEach((feature, index) => {
+                feature.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(10px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                feature.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+
+            const vortexFrame = document.querySelector('.vortex-frame');
+            vortexFrame.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.02)';
+                this.style.transition = 'transform 0.5s ease';
+            });
+            
+            vortexFrame.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+
+
+          var blocks = document.querySelectorAll('.power-block');
+        
+        for (var i = 0; i < blocks.length; i++) {
+            blocks[i].addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            blocks[i].addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        }
